@@ -1,7 +1,7 @@
-baseURL: https://hugo-toha.github.io
+baseURL: https://fridayNightCoder.github.io
 
 languageCode: en-us
-title: "John's Blog"
+title: "Friday Night Coder"
 
 # Use Hugo modules to add theme
 module:
@@ -19,13 +19,13 @@ module:
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
-languages:
-  en:
-    languageName: English
-    weight: 1
-  bn:
-    languageName: বাংলা
-    weight: 3
+# languages:
+#   en:
+#     languageName: English
+#     weight: 1
+#   bn:
+#     languageName: বাংলা
+#     weight: 3
 
 # Force a locale to be use, really useful to develop the application ! Should be commented in production, the "weight" should rocks.
 # DefaultContentLanguage: bn
@@ -64,7 +64,7 @@ params:
     favicon: /images/site/favicon.png
 
   # GitHub repo of your site
-  gitRepo: https://github.com/hugo-toha/hugo-toha.github.io
+  gitRepo: https://github.com/FridayNightCoder/fridayNightCoder.github.io
   # Default branch of your Git repo
   gitBranch: main
 
@@ -77,7 +77,7 @@ params:
 
     # Enable dark theme
     darkMode:
-      enable: true
+      enable: false
 
     # Enable and configure portfolio
     portfolio:
@@ -140,7 +140,7 @@ params:
 
     # Enable Analytics
     analytics:
-      enabled: true
+      enabled: false
       services:
         # Google Analytics
         google:
@@ -287,4 +287,4 @@ params:
 
     # Show/hide disclaimer notice in the footer. Default is "false".
     disclaimer:
-      enable: true
+      enable: false
