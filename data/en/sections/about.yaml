@@ -47,13 +47,13 @@ resourceLinks:
 # You can also show a circular bar indicating the level of expertise on a certain skill
 badges:
 
-- type: soft-skill-indicator
-  name: Java
-  percentage: 85
-  color: green
+- type: certification
+  name: "Microsoft Certified: Azure Fundamentals"
+  url: "https://www.credly.com/badges/41a71d25-4f0d-4be7-8d81-db8c17279861?source=linked_in_profile"
+  badge: "https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
 
 - type: soft-skill-indicator
-  name: Python
+  name: Java
   percentage: 85
   color: green  
 
