@@ -10,89 +10,68 @@ section:
   # hideTitle: true
 
 degrees:
-- name: Ph.D in Quantum Cryptography
-  icon: fa-microscope
-  timeframe: 2016-2020
-  institution:
-    name: ABC University of Technology
-    url: "#"
-    logo: /images/sections/education/tech_college.png
-  grade: #(optional)
-    scale: CGPA
-    achieved: 3.6
-    outOf: 4
-  publications: #(optional)
-  - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    url: "#"
-  - title: Fusce eu augue ut odio porttitor pulvinar.
-    url: "#"
-  - title: Nullam vitae orci tincidunt purus viverra pulvinar.
-    url: "#"
-- name: B.Sc. in Computer Science & Engineering
+- name: MSc in Software Design with Cloud Native Computing
   icon: fa-graduation-cap
-  timeframe: 2012-2016
+  timeframe: 2022-2023
   institution:
-    name: University of XYZ
-    url: "#"
-    logo: /images/sections/education/university.jpg
-  grade: #(optional)
-    scale: CGPA
-    achieved: 3.5
-    outOf: 4
-  takenCourses: #(optional)
-    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-    showGrades: true
-    collapseAfter: 3
-    courses:
-    - name: Data Structures and Algorithm
-      achieved: 3.75
-      outOf: 4
-    - name: Network Security
-      achieved: 3.80
-      outOf: 4
-    - name: Operating System
-      achieved: 3.5
-      outOf: 4
-    - name: Artificial Intelligent
-      achieved: 3.75
-      outOf: 4
-  publications: #(optional)
-  - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    url: "#"
-  - title: Fusce eu augue ut odio porttitor pulvinar.
-    url: "#"
-  extracurricularActivities: #(optional)
-  - In vitae facilisis est, eget porta sem.
-  - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
-  - Duis sed massa feugiat, ornare justo et, aliquam est.
-  - Pellentesque ut fringilla magna.
+    name: "Technological University of Shannon: Midlands Midwest"
+    url: "https://tus.ie/"
+    logo: /images/sections/education/tus.png
   custonSections: #(optional)
-    - name: Thesis
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - name: Supervisor
-      content: Fusce eu augue ut odio porttitor pulvinar.
-- name: Higher Secondary School Certificate
+    - name: "Modules"
+      content: <ul>
+                <li>Containers and Cluster Management</li>
+                <li>Cloud and Production Ready Microservices</li>
+                <li>Continuous Integration and Delivery</li>
+                <li>Applied Scripting Languages</li>
+               </ul>
+    
+- name: Postgraduate Diploma in Cybersecurity
+  icon: fa-graduation-cap
+  timeframe: 2018-2020
+  institution:
+    name: National College of Ireland
+    url: "https://www.ncirl.ie/"
+    logo: /images/sections/education/nci.png
+  custonSections: #(optional)
+    - name: "Modules"
+      content: <ul>
+                <li>Network Security and Penetration Testing</li>
+                <li>Security Fundamentals</li>
+                <li>Cloud Architectures and Security</li>
+                <li>Malware Analysis</li>
+                <li>Secure Application Development</li>
+               </ul>
+- name: BSc Computer Science Engineering
   icon: fa-university
-  timeframe: 2010-2012
+  timeframe: 2007-2011
   institution:
-    name: MST College of Science
-    url: "#"
-    logo: /images/sections/education/science_college.png
-  grade: #(optional)
-    scale: GPA
-    achieved: 5
-    outOf: 5
-  extracurricularActivities: #(optional)
-  - In vitae facilisis est, eget porta sem.
-  - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
-  - Duis sed massa feugiat, ornare justo et, aliquam est.
-  - Pellentesque ut fringilla magna.
-- name: Secondary School Certificate
+    name: Universidade Nova de Lisboa
+    logo: /images/sections/education/novafct.png
+    url: "https://www.fct.unl.pt/"
+  custonSections: #(optional)
+    - name: "Modules"
+      content: <ul>
+                <li>Algorithms and Data Structures</li>
+                <li>Network Security</li>
+                <li>Operating Systems</li>
+                <li>Artificial Intelligence</li>
+                <li>Computer Networks</li>
+                <li>Distributed Systems</li>
+                <li>Databases</li>
+                <li>Object Oriented Programming</li>
+               </ul>
+
+- name: Secondary School Certificate - Computer Technician
   icon: fa-school
-  timeframe: 2005-2010
+  timeframe: 2004-2007
   institution:
-    name: JK School of Science
-  grade: #(optional)
-    scale: GPA
-    achieved: 4.5
-    outOf: 5
+    name: Escola Secundaria Joao de Barros
+    logo: /images/sections/education/joaodebarros.png
+  custonSections: #(optional)
+  - name: "Modules"
+    content: <ul>
+              <li>Intro to Programming</li>
+              <li>Intro to Computer Networks</li>
+              <li>Intro to Operating Systems</li>
+              </ul>

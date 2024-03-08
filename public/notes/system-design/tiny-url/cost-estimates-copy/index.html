@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Cost Estimates</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.33b6f2765cc4d590a8ef3718b678c20645d7d52af0cc9c6cd00382c63bba13c4.css" integrity="sha256-M7bydlzE1ZCo7zcYtnjCBkXX1SrwzJxs0AOCxju6E8Q=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hucce0159af33ea24e360e50119435840c_26059_42x0_resize_box_3.png" />
+
+<meta property="og:title" content="Cost Estimates" />
+<meta property="og:description" content=" Cost Estimates 500M URLs per month 100:1 reads to writes 500b of storate per URL (2b per caracter = 250 charactes wich might be too much) 500M / 30 / 24 / 60 / 60 ~= 200 writes per second 20k reads per second 15Tb of disk over 5 yeards 50Gb of cache per month " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/notes/system-design/tiny-url/cost-estimates-copy/" /><meta property="article:section" content="notes" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Cost Estimates"/>
+<meta name="twitter:description" content=" Cost Estimates 500M URLs per month 100:1 reads to writes 500b of storate per URL (2b per caracter = 250 charactes wich might be too much) 500M / 30 / 24 / 60 / 60 ~= 200 writes per second 20k reads per second 15Tb of disk over 5 yeards 50Gb of cache per month "/>
+
+    
+     
+
+    
+
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-notes kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hucce0159af33ea24e360e50119435840c_26059_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Friday Night Coder</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experience</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#projects">Projects</a>
+                </li>
+              
+            
+            
+            
+            
+            
+            
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hucce0159af33ea24e360e50119435840c_26059_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hucce0159af33ea24e360e50119435840c_26059_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  
+  
+
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/notes" data-filter="all">Notes</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/notes/system-design/"> System Design</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/notes/system-design/tiny-url/"> Tiny Url</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/notes/system-design/tiny-url/cost-estimates/" title="Cost Estimates">Cost Estimates</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/notes/system-design/tiny-url/database/" title="Database">Database</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/notes/system-design/tiny-url/notes/" title="notes">notes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/notes/system-design/tiny-url/requirements/" title="Requirements">Requirements</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid note-card-holder" id="note-card-holder">
+      <div class="note-card ">
+    <div class="item">
+        <h5 class="note-title"><span>Cost Estimates</span></h5>
+        
+            <div class="card">
+                <div class="card-body"><ul>
+<li>500M URLs per month</li>
+<li>100:1 reads to writes</li>
+<li>500b of storate per URL (2b per caracter = 250 charactes wich might be too much)</li>
+<li>500M / 30 / 24 / 60 / 60 ~=</li>
+<li>200 writes per second</li>
+<li>20k reads per second</li>
+<li>15Tb of disk over 5 yeards</li>
+<li>50Gb of cache per month</li>
+</ul>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#experiences">Experience</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#projects">Projects</a>
+                </li>
+              
+              
+              
+              
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:johndoe@example.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>johndoe@example.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/johndoe target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>johndoe</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/johndoe target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Artur Barros</span>
+                </a></li>
+              
+            
+              
+                <li><span><i class="fas fa-phone-alt"></i></span> <span>&#43;0123456789</span></li>
+              
+            
+              
+                <li><a href=https://www.researchgate.net/profile/john-doe target="_blank" rel="noopener">
+                  <span><i class="fab fa-researchgate"></i></span> <span>Artur Barros</span>
+                </a></li>            
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.3e1bbf2580797137e70c878fc8365f2d02ac7d1d74b586c8b23839e57cb76410.js" integrity="sha256-Phu/JYB5cTfnDIePyDZfLQKsfR10tYbIsjg55Xy3ZBA=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

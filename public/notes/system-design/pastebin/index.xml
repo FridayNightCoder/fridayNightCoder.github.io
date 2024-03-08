@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paste Bin on Friday Night Coder</title>
+    <link>http://localhost:1313/notes/system-design/pastebin/</link>
+    <description>Recent content in Paste Bin on Friday Night Coder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://localhost:1313/notes/system-design/pastebin/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Flow Control</title>
+      <link>http://localhost:1313/notes/system-design/pastebin/flow-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/pastebin/flow-control/</guid>
+      <description>Condition if day == &amp;#34;sunday&amp;#34; || day == &amp;#34;saturday&amp;#34; { rest() } else if day == &amp;#34;monday&amp;#34; &amp;amp;&amp;amp; isTired() { groan() } else { work() } if _, err := doThing(); err != nil { fmt.Println(&amp;#34;Uh oh&amp;#34;) Switch switch day { case &amp;#34;sunday&amp;#34;: // cases don&amp;#39;t &amp;#34;fall through&amp;#34; by default! fallthrough case &amp;#34;saturday&amp;#34;: rest() default: work() } Loop for count := 0; count &amp;lt;= 10; count++ { fmt.Println(&amp;#34;My counter is at&amp;#34;, count) } entry := []string{&amp;#34;Jack&amp;#34;,&amp;#34;John&amp;#34;,&amp;#34;Jones&amp;#34;} for i, val := range entry { fmt.</description>
+    </item>
+    
+    
+  </channel>
+</rss>

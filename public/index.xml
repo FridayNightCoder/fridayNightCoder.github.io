@@ -75,82 +75,48 @@ This is sample alert with type=&amp;quot;success&amp;quot;. This is sample alert
     
     
     <item>
-      <title>Go বেসিক</title>
-      <link>http://localhost:1313/notes/go/basic/_index.bn/</link>
+      <title>Architecture</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/notes/go/basic/_index.bn/</guid>
-      <description></description>
+      <guid>http://localhost:1313/notes/system-design/tiny-url/architecture/</guid>
+      <description>Architecture How to generate the tiny URL Need to know what the composition is going to be and the size for example, all lower case + all digits = 36 characters for a tiny URL of size 6 we would have 36^6 = 2Billion for 8 characters it would be 36^8 ~= 3Billion Hashing might sounds like a good idea (sha/md5) but because we need to shorten those we would have a lot of collisions so we would need to address those.</description>
     </item>
     
     <item>
-      <title>Introduction</title>
-      <link>http://localhost:1313/notes/go/basic/introduction/</link>
+      <title>Cost Estimates</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/cost-estimates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/notes/go/basic/introduction/</guid>
-      <description> Hello World A sample go program is show here.
-package main import &amp;#34;fmt&amp;#34; func main() { message := greetMe(&amp;#34;world&amp;#34;) fmt.Println(message) } func greetMe(name string) string { return &amp;#34;Hello, &amp;#34; + name + &amp;#34;!&amp;#34; } Run the program as below:
-$ go run hello.go Variables Normal Declaration:
-var msg string msg = &amp;#34;Hello&amp;#34; Shortcut:
-msg := &amp;#34;Hello&amp;#34; Constants const Phi = 1.618 </description>
+      <guid>http://localhost:1313/notes/system-design/tiny-url/cost-estimates/</guid>
+      <description> Cost Estimates 500M URLs per month 100:1 reads to writes 500b of storate per URL (2b per caracter = 250 charactes wich might be too much) 500M / 30 / 24 / 60 / 60 ~= 200 writes per second 20k reads per second 15Tb of disk over 5 yeards 50Gb of cache per month </description>
     </item>
     
     <item>
-      <title>Basic Types</title>
-      <link>http://localhost:1313/notes/go/basic/types/</link>
+      <title>Database</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/database/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/notes/go/basic/types/</guid>
-      <description>Strings str := &amp;#34;Hello&amp;#34; Multiline string
-str := `Multiline string` Numbers Typical types
-num := 3 // int num := 3. // float64 num := 3 + 4i // complex128 num := byte(&amp;#39;a&amp;#39;) // byte (alias for uint8) Other Types
-var u uint = 7 // uint (unsigned) var p float32 = 22.7 // 32-bit float Arrays // var numbers [5]int numbers := [...]int{0, 0, 0, 0, 0} Pointers func main () { b := *getPointer() fmt.</description>
+      <guid>http://localhost:1313/notes/system-design/tiny-url/database/</guid>
+      <description> Database Tables Users table UserId: int Email: string PasswordHash: string CreationTime: date Link table ShortUrl: string (Primary or Partition Key) Expiration: date UserId: int OriginalLink: string Click table ShortUrl: int TimeClicked: date ClickerInfo: Json </description>
     </item>
     
     <item>
-      <title>অ্যাডভান্সড</title>
-      <link>http://localhost:1313/notes/go/advanced/_index.bn/</link>
+      <title>Notes</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/notes/go/advanced/_index.bn/</guid>
-      <description></description>
+      <guid>http://localhost:1313/notes/system-design/tiny-url/notes/</guid>
+      <description> Notes on the URLs Can include API Keys for rate limiting Can include user id, if needed Expiration Time Aliases for links </description>
     </item>
     
     <item>
-      <title>Flow Control</title>
-      <link>http://localhost:1313/notes/go/basic/flow-control/</link>
+      <title>Requirements</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/requirements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/notes/go/basic/flow-control/</guid>
-      <description>Condition if day == &amp;#34;sunday&amp;#34; || day == &amp;#34;saturday&amp;#34; { rest() } else if day == &amp;#34;monday&amp;#34; &amp;amp;&amp;amp; isTired() { groan() } else { work() } if _, err := doThing(); err != nil { fmt.Println(&amp;#34;Uh oh&amp;#34;) Switch switch day { case &amp;#34;sunday&amp;#34;: // cases don&amp;#39;t &amp;#34;fall through&amp;#34; by default! fallthrough case &amp;#34;saturday&amp;#34;: rest() default: work() } Loop for count := 0; count &amp;lt;= 10; count++ { fmt.Println(&amp;#34;My counter is at&amp;#34;, count) } entry := []string{&amp;#34;Jack&amp;#34;,&amp;#34;John&amp;#34;,&amp;#34;Jones&amp;#34;} for i, val := range entry { fmt.</description>
-    </item>
-    
-    <item>
-      <title>File Manipulation</title>
-      <link>http://localhost:1313/notes/go/advanced/files/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/go/advanced/files/</guid>
-      <description> Condition if day == &amp;#34;sunday&amp;#34; || day == &amp;#34;saturday&amp;#34; { rest() } else if day == &amp;#34;monday&amp;#34; &amp;amp;&amp;amp; isTired() { groan() } else { work() } if _, err := doThing(); err != nil { fmt.Println(&amp;#34;Uh oh&amp;#34;) </description>
-    </item>
-    
-    <item>
-      <title>Bash Variables</title>
-      <link>http://localhost:1313/notes/bash/basic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/bash/basic/</guid>
-      <description> Variable NAME=&amp;#34;John&amp;#34; echo $NAME echo &amp;#34;$NAME&amp;#34; echo &amp;#34;${NAME} Condition if [[ -z &amp;#34;$string&amp;#34; ]]; then echo &amp;#34;String is empty&amp;#34; elif [[ -n &amp;#34;$string&amp;#34; ]]; then echo &amp;#34;String is not empty&amp;#34; fi </description>
-    </item>
-    
-    <item>
-      <title>Go এর নোট সমূহ</title>
-      <link>http://localhost:1313/notes/go/_index.bn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/go/_index.bn/</guid>
-      <description>Go Notes </description>
+      <guid>http://localhost:1313/notes/system-design/tiny-url/requirements/</guid>
+      <description> Functional Requirements Generate expiring unique short URL from user provider URL Redirect users to the correct website upon clicking short URL Logging clicks per short URL (optional) </description>
     </item>
     
     
@@ -173,30 +139,12 @@ var u uint = 7 // uint (unsigned) var p float32 = 22.7 // 32-bit float Arrays //
     </item>
     
     <item>
-      <title>নোট সমূহ</title>
-      <link>http://localhost:1313/notes/_index.bn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/_index.bn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>পোস্ট সমূহ</title>
       <link>http://localhost:1313/posts/_index.bn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/_index.bn/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>ব্যাশের নোট সমূহ</title>
-      <link>http://localhost:1313/notes/bash/_index.bn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/bash/_index.bn/</guid>
-      <description>Bash Notes </description>
     </item>
     
     

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System Design on Friday Night Coder</title>
+    <link>http://localhost:1313/notes/system-design/</link>
+    <description>Recent content in System Design on Friday Night Coder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://localhost:1313/notes/system-design/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Architecture</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/tiny-url/architecture/</guid>
+      <description>Architecture How to generate the tiny URL Need to know what the composition is going to be and the size for example, all lower case + all digits = 36 characters for a tiny URL of size 6 we would have 36^6 = 2Billion for 8 characters it would be 36^8 ~= 3Billion Hashing might sounds like a good idea (sha/md5) but because we need to shorten those we would have a lot of collisions so we would need to address those.</description>
+    </item>
+    
+    <item>
+      <title>Cost Estimates</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/cost-estimates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/tiny-url/cost-estimates/</guid>
+      <description> Cost Estimates 500M URLs per month 100:1 reads to writes 500b of storate per URL (2b per caracter = 250 charactes wich might be too much) 500M / 30 / 24 / 60 / 60 ~= 200 writes per second 20k reads per second 15Tb of disk over 5 yeards 50Gb of cache per month </description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/tiny-url/database/</guid>
+      <description> Database Tables Users table UserId: int Email: string PasswordHash: string CreationTime: date Link table ShortUrl: string (Primary or Partition Key) Expiration: date UserId: int OriginalLink: string Click table ShortUrl: int TimeClicked: date ClickerInfo: Json </description>
+    </item>
+    
+    <item>
+      <title>Notes</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/tiny-url/notes/</guid>
+      <description> Notes on the URLs Can include API Keys for rate limiting Can include user id, if needed Expiration Time Aliases for links </description>
+    </item>
+    
+    <item>
+      <title>Requirements</title>
+      <link>http://localhost:1313/notes/system-design/tiny-url/requirements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-design/tiny-url/requirements/</guid>
+      <description> Functional Requirements Generate expiring unique short URL from user provider URL Redirect users to the correct website upon clicking short URL Logging clicks per short URL (optional) </description>
+    </item>
+    
+    
+  </channel>
+</rss>

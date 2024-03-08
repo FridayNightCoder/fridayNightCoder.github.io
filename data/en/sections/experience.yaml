@@ -11,12 +11,12 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
-    logo: /images/sections/experience/company1.jpg
+    name: Mastercard
+    url: "https://www.mastercard.com"
+    location: Dublin, Ireland
+    logo: /images/sections/experience/mastercard.png
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+    overview: Mastercard Inc. is the second-largest payment-technology corporation worldwide. It offers a range of payment transaction processing and other related-payment services.
   positions:
   - designation: Senior Software Engineer
     start: Nov 2019
@@ -37,10 +37,10 @@ experiences:
     - Learn k,d,w technology for xyz.
 
 - company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
-    logo: /images/sections/experience/company2.jpg
+    name: Guidewire
+    url: "https://www.guidewire.com"
+    location: Dublin, Ireland
+    logo: /images/sections/experience/guidewire.png
     overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
   positions:
   - designation: Software Engineer
@@ -52,10 +52,10 @@ experiences:
     - See lots of example videos.
 
 - company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
+    name: CGI.
+    url: "https://cgi.com"
     location: Intern Land
-    logo: /images/sections/experience/company3.jpg
+    logo: /images/sections/experience/cgi.jpg
     overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
   positions:
   - designation: Intern
